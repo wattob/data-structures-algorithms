@@ -1,6 +1,12 @@
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+* From https://neetcode.io/
+* javac .\Contains-Duplicates.java
+* java Solution
+*/
+
 class Solution {
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> uniques = new HashSet<>();
@@ -27,4 +33,23 @@ class Solution {
         // new Solution().containsDuplicate(exampleThree);
         System.out.println(new Solution().containsDuplicate(exampleThree));
     }
+
+    /*
+    * Alternative solutions:
+    * Check each object against the remainder. We don't need to cycle back to check the previous element because we already checked it
+    * additional option includes sorting then check elements next to, but not optimal
+    */
+    public boolean containsDuplicateForLoop(int[] nums) {
+        for (int i=0; i < nums.length; i++) {
+            for (int j=i+1; j < nums.length; j++) {
+                System.out.println(nums[i]); // Used to illustrate comparison 
+                System.out.println(nums[j]);
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;   
+    }
+
 }
